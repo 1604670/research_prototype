@@ -34,7 +34,10 @@ public class Shoot : MonoBehaviour {
 
     void fire()
     {
-        GameObject g =  Instantiate(arrow, transform.position, Quaternion.identity);
-        g.GetComponent<Arrow>().speed *= Mathf.Abs(transform.localScale.x) / transform.localScale.x ;
+        float mul = Mathf.Abs(transform.localScale.x) / transform.localScale.x;
+
+        GameObject g =  Instantiate(arrow, transform.position + (mul*Vector3.right*0.5f), Quaternion.identity);
+        g.GetComponent<Arrow>().speed *= mul;
+        g.transform.localScale*= mul;
     }
 }
