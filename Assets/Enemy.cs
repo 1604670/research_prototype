@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
     public virtual void movement()
     {
 
-        angle += speed;
+        angle += speed *Time.deltaTime * 120;
         float sinVal = (Mathf.Sin(Time.time * frequency) * amplitude) + delay;
 
         float x = center.x + Mathf.Cos(angle) * radius + sinVal;//Random.Range(-noise,noise);

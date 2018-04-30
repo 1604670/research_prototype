@@ -26,7 +26,7 @@ public class EnemyUpDown : Enemy {
 
         if (chasing)
         {
-            transform.position += (player.transform.position - transform.position).normalized * followSpeed;
+            transform.position += (player.transform.position - transform.position).normalized * followSpeed * Time.deltaTime*120;
             if (distFromPlayer > maxChaseDistance)
             {
                 chasing = false;
@@ -36,7 +36,7 @@ public class EnemyUpDown : Enemy {
         }
         else if (goback)
         {
-            transform.position += (center - transform.position).normalized * followSpeed ;
+            transform.position += (center - transform.position).normalized * followSpeed * Time.deltaTime * 120;
             if (distFromCenter<0.01f)
             {
                 chasing = false;
