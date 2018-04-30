@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour {
     private void Awake()
     {
         speed = 0.1f;
+        Destroy(gameObject, 5f);
     }
     // Update is called once per frame
     void Update ()
@@ -26,6 +27,13 @@ public class Arrow : MonoBehaviour {
         if(collision.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().Die();
+            Destroy(gameObject);
+        }
+
+
+        if (collision.tag == "Heart")
+        {
+            collision.gameObject.GetComponent<Heart>().Hit();
             Destroy(gameObject);
         }
     }
