@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour {
 
     Vector3 velocity;
+    public Sprite arrowBroken;
 
     [HideInInspector]
     public float speed = 0.0001f;
@@ -33,6 +34,7 @@ public class Arrow : MonoBehaviour {
 
         if (collision.tag == "Heart")
         {
+            GetComponent<SpriteRenderer>().sprite = arrowBroken;
             collision.gameObject.GetComponent<Heart>().Hit();
 
             Destroy(gameObject,0.1f);
