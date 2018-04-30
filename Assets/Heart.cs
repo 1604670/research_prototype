@@ -19,14 +19,20 @@ public class Heart : MonoBehaviour {
     
     public void Hit()
     {
+        GetComponent<Animator>().enabled = true;
         StartCoroutine(hitHeart());
+    }
+
+    public void escape()
+    {
+        StartCoroutine(EscapeStart());
     }
 
     IEnumerator hitHeart()
     {
         Time.timeScale = 0;
         float t = Time.unscaledTime;
-        while(Time.unscaledTime - t <= 1)
+        while(Time.unscaledTime - t <= 4)
         {
             yield return null;
 
@@ -40,6 +46,29 @@ public class Heart : MonoBehaviour {
         yield return new WaitForSeconds(2);
         Spike.gameObject.SetActive(false);
         Flatline.gameObject.SetActive(true);
+
+
+    }
+
+
+    IEnumerator EscapeStart()
+    {
+        Time.timeScale = 0;
+        float t = Time.unscaledTime;
+        while (Time.unscaledTime - t <= 0.25f)
+        {
+            yield return null;
+
+        }
+        Time.timeScale = 1;
+
+        c.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        Flatline.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+        Spike.gameObject.SetActive(true);
+        Flatline.gameObject.SetActive(false);
 
 
     }

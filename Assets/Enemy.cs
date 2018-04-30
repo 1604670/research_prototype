@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour {
         float x = center.x + Mathf.Cos(angle) * radius + sinVal;//Random.Range(-noise,noise);
         float y = center.y + Mathf.Sin(angle) * radius + sinVal;//Random.Range(-noise, noise);
 
-        transform.position = Vector3.Lerp(transform.position, new Vector3(x, y, transform.position.z), smoothness);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(x, y, transform.position.z), smoothness) ;
     }
 
 

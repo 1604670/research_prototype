@@ -19,11 +19,11 @@ public class Arrow : MonoBehaviour {
     {
         velocity = Vector3.right*speed;
 
-        transform.position += velocity;
+        transform.position += velocity * Time.deltaTime*120;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {   
         if(collision.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().Die();
@@ -34,7 +34,8 @@ public class Arrow : MonoBehaviour {
         if (collision.tag == "Heart")
         {
             collision.gameObject.GetComponent<Heart>().Hit();
-            Destroy(gameObject);
+
+            Destroy(gameObject,0.1f);
         }
     }
 }

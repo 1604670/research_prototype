@@ -36,7 +36,7 @@ public class EnemyUpDown : Enemy {
         }
         else if (goback)
         {
-            transform.position += (center - transform.position).normalized * followSpeed;
+            transform.position += (center - transform.position).normalized * followSpeed ;
             if (distFromCenter<0.01f)
             {
                 chasing = false;
